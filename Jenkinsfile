@@ -15,7 +15,7 @@ node {
     }
 
     stage('Scan image') {
-        twistlockScan ca: '', cert: '', compliancePolicy: 'high', dockerAddress: 'tcp://172.17.0.1:2375', ignoreImageBuildTime: false, image: 'neilcar*', key: '', logLevel: 'true', policy: 'high', requirePackageUpdate: false, timeout: 10
+        twistlockScan ca: '', cert: '', compliancePolicy: 'warn', dockerAddress: 'tcp://172.17.0.1:2375', ignoreImageBuildTime: false, image: 'neilcar*', key: '', logLevel: 'true', policy: 'warn', requirePackageUpdate: false, timeout: 10
     }
     
     stage('Publish scan results') {
