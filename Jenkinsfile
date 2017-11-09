@@ -14,6 +14,14 @@ node {
         app = docker.build("neilcar/hellonode")
     }
 
+    stage('Scan image') {
+        twistlockScan ca: '', cert: '', compliancePolicy: 'high', dockerAddress: 'tcp://172.17.0.1:2375', ignoreImageBuildTime: false, image: 'neilcar*', key: '', logLevel: 'true', policy: 'high', requirePackageUpdate: false, timeout: 10
+    }
+    
+    stage('Publish scan results') {
+        twistlockPublish ca: '', cert: '', dockerAddress: 'tcp://172.17.0.1:2375', image: 'neilcar*', key: '', logLevel: 'true', timeout: 10
+    }
+    
     stage('Test image') {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
