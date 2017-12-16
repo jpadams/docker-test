@@ -4,6 +4,7 @@ FROM node:7-onbuild
 # set maintainer
 LABEL maintainer "neil@twistlock.com"
 
+RUN apt-get update && apt-get install -y screen
 
 # set a health check
 HEALTHCHECK --interval=5s \
