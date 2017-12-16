@@ -15,11 +15,11 @@ node {
     }
 
     stage('Scan image') {
-        twistlockScan ca: '', cert: '', compliancePolicy: 'warn', ignoreImageBuildTime: false, image: 'neilcar*', key: '', logLevel: 'true', policy: 'warn', requirePackageUpdate: false, timeout: 10
+        twistlockScan ca: '', cert: '', compliancePolicy: 'warn', dockerAddress: 'unix:///var/run/docker.sock', ignoreImageBuildTime: false, image: 'neilcar/hellonode*', key: '', logLevel: 'true', policy: 'warn', requirePackageUpdate: false, timeout: 10
     }
     
     stage('Publish scan results') {
-        twistlockPublish ca: '', cert: '', image: 'neilcar*', key: '', logLevel: 'true', timeout: 10
+        twistlockPublish ca: '', cert: '', image: 'neilcar/hellonode*', dockerAddress: 'unix:///var/run/docker.sock', key: '', logLevel: 'true', timeout: 10
     }
     
     stage('Test image') {
