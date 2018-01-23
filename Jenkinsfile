@@ -12,7 +12,8 @@ node {
          * docker build on the command line */
 
         app = docker.build("neilcar/hellonode")
-        echo app
+        echo app.id
+        echo app.parsedId
     }
 
     stage('Scan image') {
