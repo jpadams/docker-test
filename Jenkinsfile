@@ -16,9 +16,9 @@ node {
         // echo app.parsedId
     }
 
-    stage('Scan image') {
-        twistlockScan ca: '', cert: '', gracePeriodDays: 60, compliancePolicy: 'low', dockerAddress: 'unix:///var/run/docker.sock', ignoreImageBuildTime: true, image: 'neilcar/hellonode:latest', key: '', logLevel: 'true', policy: 'warn', requirePackageUpdate: false, timeout: 10
-    }
+  //  stage('Scan image') {
+  //      twistlockScan ca: '', cert: '', gracePeriodDays: 60, compliancePolicy: 'low', dockerAddress: 'unix:///var/run/docker.sock', ignoreImageBuildTime: true, image: 'neilcar/hellonode:latest', key: '', logLevel: 'true', policy: 'warn', requirePackageUpdate: false, timeout: 10
+  //  }
     
     stage('Publish scan results') {
         twistlockPublish ca: '', cert: '', compliancePolicy: 'low', image: 'neilcar/hellonode:latest', dockerAddress: 'unix:///var/run/docker.sock', key: '', ignoreImageBuildTime: true, logLevel: 'true', timeout: 10
