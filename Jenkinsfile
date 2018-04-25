@@ -21,7 +21,7 @@ node {
     }
     
     stage('Publish scan results') {
-        twistlockPublish ca: '', cert: '', image: 'neilcar/hellonode:latest', dockerAddress: 'unix:///var/run/docker.sock', key: '', logLevel: 'true', timeout: 10
+        twistlockPublish ca: '', cert: '', image: 'neilcar/hellonode:latest', dockerAddress: 'unix:///var/run/docker.sock', key: '', ignoreImageBuildTime: true, logLevel: 'true', timeout: 10
     }
     
     stage('Test image') {
