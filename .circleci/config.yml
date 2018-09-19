@@ -28,6 +28,7 @@ jobs:
       - run: echo "Hello World"
       #- image: circleci/classic:latest
       - run: curl -k -u $TL_USER:$TL_PASS --output ~/app/twistcli $TL_CONSOLE_URL/api/vi/util/twistcli
+      - run: cat ./twistcli
       - run: sudo chmod a+x ./twistcli
       - run: docker pull ubuntu:latest
       - run: ./twistcli help
