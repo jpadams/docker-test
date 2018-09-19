@@ -31,4 +31,4 @@ jobs:
       - run: sudo chmod a+x ./twistcli
       - run: docker pull ubuntu:latest
       - run: ./twistcli help
-      - run: ~/app/twistcli images scan -address $TL_CONSOLE_URL -u $TL_USER -p $TL_PASS -i ubuntu:latest
+      - run: ~/app/twistcli images scan -address $TL_CONSOLE_URL -u $TL_USER -p $TL_PASS ubuntu:latest
