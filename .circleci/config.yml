@@ -27,7 +27,7 @@ jobs:
       # specify any bash command here prefixed with run: 
       - run: echo "Hello World"
       #- image: circleci/classic:latest
-      - run: curl -k -u $TL_USER:$TL_PASS --output ~/app/twistcli $TL_CONSOLE_URL/api/vi/util/twistcli
+      - run: curl -k -u $TL_USER:$TL_PASS --output ~/app/twistcli $TL_CONSOLE_URL/api/v1/util/twistcli
       - run: cat ./twistcli
       - run: sudo chmod a+x ./twistcli
       - run: docker pull ubuntu:latest
