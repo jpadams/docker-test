@@ -25,10 +25,9 @@ jobs:
       - checkout
 
       # specify any bash command here prefixed with run: 
-      - run: echo "Hello World"
+      - setup_remote_docker
       #- image: circleci/classic:latest
       - run: curl -k -u $TL_USER:$TL_PASS --output ~/app/twistcli $TL_CONSOLE_URL/api/v1/util/twistcli
       - run: sudo chmod a+x ./twistcli
-      - run: docker pull ubuntu:latest
-      - run: ./twistcli help
-      - run: ~/app/twistcli images scan -address $TL_CONSOLE_URL -u $TL_USER -p $TL_PASS ubuntu:latest
+      - run: docker build -t neilcar/helloworld:$CIRCLE_BRANCH .
+      - run: ~/app/twistcli images scan -address $TL_CONSOLE_URL -u $TL_USER -p $TL_PASS neilcar/helloworld:$CIRCLE_BRANCH 
